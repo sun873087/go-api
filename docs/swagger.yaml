@@ -1,0 +1,98 @@
+host: localhost:8080
+info:
+  contact:
+    email: sam.cheng@wnc.com.tw
+    name: sam.cheng
+  description: 給Flutter學習使用的API
+  title: Sam Gin Swagger Test
+  version: 1.0.0
+paths:
+  /demo/v1/hello:
+    get:
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+  /demo/v1/hi:
+    post:
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+  /user/person/login:
+    post:
+      description: 登入
+      parameters:
+      - description: 用戶帳號
+        in: formData
+        name: name
+        required: true
+        type: string
+      - description: 用戶密碼
+        in: formData
+        name: password
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: ok" "返回用户信息
+          schema:
+            type: string
+        "400":
+          description: err_code：10002 参数错误； err_code：10003 校验错误
+          schema:
+            type: string
+        "401":
+          description: err_code：10001 登录失败
+          schema:
+            type: string
+        "500":
+          description: err_code：20001 服务错误；err_code：20002 接口错误；err_code：20003 无数据错误；err_code：20004
+            数据库异常；err_code：20005 缓存异常
+          schema:
+            type: string
+      summary: 登入
+      tags:
+      - User
+  /user/person/signup:
+    post:
+      description: 註冊
+      parameters:
+      - description: 用戶帳號
+        in: formData
+        name: name
+        required: true
+        type: string
+      - description: 用戶密碼
+        in: formData
+        name: password
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: ok" "返回用户信息
+          schema:
+            type: string
+        "400":
+          description: err_code：10002 参数错误； err_code：10003 校验错误
+          schema:
+            type: string
+        "401":
+          description: err_code：10001 登录失败
+          schema:
+            type: string
+        "500":
+          description: err_code：20001 服务错误；err_code：20002 接口错误；err_code：20003 无数据错误；err_code：20004
+            数据库异常；err_code：20005 缓存异常
+          schema:
+            type: string
+      summary: 註冊
+      tags:
+      - User
+swagger: "2.0"
